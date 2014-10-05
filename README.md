@@ -133,15 +133,23 @@ JavaScript:
 
 
 var myvar=new extern("global","var1",function(){
+
 console.log("updated to:"+myvar.value());
+
 });
 
 
 
+
+
 //if you need to check for values at regulat intervals...
+
 setInterval(myvar.update(),100);
 
 </script>
+
+
+
 
 
 
