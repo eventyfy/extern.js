@@ -126,27 +126,22 @@ echo $var1->value();
 
 JavaScript:
 
-<script>
-<script src="jquery-1.10.2.min.js"></script>
-<script src="multifetch.js"></script>
-<script src="/extern/extern.js"></script>
 
 
-var myvar=new extern("global","var1",function(){
+		<script src="jquery-1.10.2.min.js"></script>
+		<script src="multifetch.js"></script>
+		<script src="/extern/extern.js"></script>
+		<script>
+	var myvar=new extern("global","var1",function(){
+	console.log("updated to:"+myvar.value());
+	});
+		</script>
 
-console.log("updated to:"+myvar.value());
 
-});
+	//if you need to check for values at regulat intervals...
+	
+	setInterval(myvar.update(),100);
 
-
-
-
-
-//if you need to check for values at regulat intervals...
-
-setInterval(myvar.update(),100);
-
-</script>
 
 
 
