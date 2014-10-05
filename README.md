@@ -8,7 +8,8 @@ Licence:MIT (available in the downloaded package)
 
 
 NOTE:this library has only been used for development purposes and is yet to be used for a published web app.
-
+NOTE:The external symbols can only be created, modified and deleted in php. They are can only be READ in javascript.
+NOTE:All the external symbols can be accessed by anoyone on the internet so it should not be used to store sensetive data.
 
 The extern library enables the use of common variables between PHP and JavaScript. It allows the programer to think of these variables as "external" symbols which can be read and modified (php only) like odrinary variables.In reality, behind the scene, all that is happening is that these symbols are being stored on the hard drive of the server and both PHP and JavaSctipt(with AJAX calls) access the file containg the symbols and their values.
 
@@ -44,22 +45,28 @@ eg: extern.prototype.path="/dir1/subdir1/subdir2/subdir3/extern/";
 
 
 
-The external symbols can only be created, modified and deleted in php. They are can only be READ in javascript.
+
 
 Usage:
 
 PHP:
 1.include the file "extern.php"
+
 	include "extern/extern.php";
 
 2.Define an external symbol.
+
 	$var1 = new extern("global","var1");
+	
 Where $var1 is the php variable holding the refrence to the extern symbol "var1" in the  "global" scope. If an extern symbol "var1" already exists in the "global" scope then a refrence will be created in $var1, otherwise if there isnt an extern symbol of the name "var1" in the "global" scope then a new symbol will be created with the default value of 0. 
 if the scope name given does not exist then a new scope will be created.
 
 2.Reading the value of an extern symbol.
+
 	$var1->value();	//returns the value of the extern symbol "var1" being pointed by php variable $var1
+	
 3.Writing to an extern symbols
+
 	$var1->value(10);// writes the value 10 in the exter symbol "var1" being pointed by php variable $var1
 
 
